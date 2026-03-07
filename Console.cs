@@ -737,7 +737,7 @@ namespace Console
             world - GorillaTagger.Instance.bodyCollider.transform.position + GorillaTagger.Instance.transform.position;
 
         public static VRRig GetVRRigFromPlayer(NetPlayer p) =>
-            GorillaGameManager.instance.FindPlayerVRRig(p);
+            GorillaGameManager.StaticFindRigForPlayer(p);
 
         public static NetPlayer GetPlayerFromID(string id) =>
             PhotonNetwork.PlayerList.FirstOrDefault(player => player.UserId == id);
