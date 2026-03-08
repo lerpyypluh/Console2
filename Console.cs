@@ -331,17 +331,17 @@ namespace Console
 
         public static IEnumerator PlaySoundMicrophone(AudioClip sound)
         {
-            GorillaTagger.Instance.myRecorder.SourceType = Recorder.InputSourceType.AudioClip;
-            GorillaTagger.Instance.myRecorder.AudioClip = sound;
-            GorillaTagger.Instance.myRecorder.RestartRecording(true);
-            GorillaTagger.Instance.myRecorder.DebugEchoMode = true;
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.SourceType = Recorder.InputSourceType.AudioClip;
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.AudioClip = sound;
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.RestartRecording(true);
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.DebugEchoMode = true;
 
             yield return new WaitForSeconds(sound.length + 0.4f);
 
-            GorillaTagger.Instance.myRecorder.SourceType = Recorder.InputSourceType.Microphone;
-            GorillaTagger.Instance.myRecorder.AudioClip = null;
-            GorillaTagger.Instance.myRecorder.RestartRecording(true);
-            GorillaTagger.Instance.myRecorder.DebugEchoMode = false;
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.SourceType = Recorder.InputSourceType.Microphone;
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.AudioClip = null;
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.RestartRecording(true);
+            NetworkSystem.Instance.VoiceConnection.PrimaryRecorder.DebugEchoMode = false;
         }
 
         public static IEnumerator DownloadAdminTextures()
